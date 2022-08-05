@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 903783623182744709}
   - component: {fileID: 903783623182744708}
   - component: {fileID: 4122748339782715732}
+  - component: {fileID: 401716650051698270}
   m_Layer: 6
   m_Name: RedCup
   m_TagString: Cup
@@ -107,9 +108,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 401716650051698270}
+        m_TargetAssemblyTypeName: CupGame, Assembly-CSharp
+        m_MethodName: CupIsHeldByPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onRelease:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 401716650051698270}
+        m_TargetAssemblyTypeName: CupGame, Assembly-CSharp
+        m_MethodName: CupIsNotHeldByPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onSqueeze:
     m_PersistentCalls:
       m_Calls: []
@@ -336,6 +361,21 @@ MonoBehaviour:
     type: 3}
   redCup: {fileID: 903783623182744711}
   delayTime: 2
+--- !u!114 &401716650051698270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903783623182744711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db576b38f00237141ac729465aaa04fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cupIsNotHeldByPlayer: 1
+  cupIsInCollisionWithOtherCup: 0
+  cupIsInCollisionWithLevelFinishMark: 0
 --- !u!1 &8277311784780844676
 GameObject:
   m_ObjectHideFlags: 0

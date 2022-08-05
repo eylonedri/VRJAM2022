@@ -6,38 +6,8 @@ public class CupManager : MonoBehaviour
 {
     public Transform cupSpawnPoint;
     public GameObject redCup;
- 
+    public float delayTime = 1.5f;
 
-
-   // public int cupIndex = 0;
-    public float delayTime = 2;
-
-
-  /*  public void CupIndexUp(){
-        cupIndex++;
-        Debug.Log("Cup Index Up: " + cupIndex);
-    }
-
-    public void CupIndexDown(){
-        cupIndex--;
-        Debug.Log("Cup Index Down: " + cupIndex);
-    }
-
-    public void CheckCupIndex(bool cupIndexStatus)
-    {
-        Debug.Log("Checking Cup Index: " + cupIndex);
-        if (cupIndex < 20)
-        {
-            cupIndexStatus = true;
-            SpawnCup();
-        }
-        else
-        {
-            cupIndexStatus = false;
-            Debug.Log("Changed Status to False: " + cupIndex);
-        }
-    }
-  */
     public void SpawnCup()
     {
         StartCoroutine(DelayAction(delayTime));
@@ -49,9 +19,7 @@ public class CupManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         //Do the action after the delay time has finished.
-      //  Debug.Log("Changed Status to True: " + cupIndex);
         Instantiate(redCup, cupSpawnPoint.position, Quaternion.identity);
-       // CupIndexUp();
     }
 }
 
