@@ -6,37 +6,30 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject redCup;
-    public bool LevelStatus;
-    public int levelNumber;
+    public int currentlevel = 0;
     public List<GameObject> levels;
 
-    public float levelCompletedEventWithDelay;
-    public UnityEvent LevelCompletedEventWithDelay;
-
-    public UnityEvent LevelCompletedEvent;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public float delayToLevelCompletedEvents = 0;
+    public UnityEvent LevelFinishedEvents;
+    public UnityEvent DelayedLevelFinishedEvents;
+    
+    public void FinishLevel()
     {
+        LevelFinishedEvents.Invoke();
+        StartCoroutine("LevelFinishDelayed");
+
+        levels[currentlevel].gameObject.SetActive(false);
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void OnTriggerEnter(Collider other)
+    IEnumerator LevelFinishDelayed()
     {
-        if (other.tag == "Cup")
-        {
-            LevelCompletedEvent.Invoke();
-            StartCoroutine("TriggerEnteredDelayeddd");
-        }
-    }
+        yield return new WaitForSeconds(delayToLevelCompletedEvents);
 
+        DelayedLevelFinishedEvents.Invoke();
+        currentlevel++;
+        levels[currentlevel].gameObject.SetActive(true);
+    }
 
 }

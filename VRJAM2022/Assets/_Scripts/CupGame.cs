@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CupGame : MonoBehaviour
 {
+
+    public GameManager gameManager;
     public bool cupIsNotHeldByPlayer = true;
     public bool cupIsInCollisionWithOtherCup = false;
     public bool cupIsInCollisionWithLevelFinishMark = false;
@@ -19,7 +21,7 @@ public class CupGame : MonoBehaviour
     {
      if (!cupIsNotHeldByPlayer && cupIsInCollisionWithOtherCup && cupIsInCollisionWithLevelFinishMark)
         {
-
+            gameManager.FinishLevel();
         }
         
     }
