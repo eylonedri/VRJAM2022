@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cup
   - LevelFinishMark
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Cup
   - SpawnBox
   - LevelFinishMark
-  - 
+  - Ground
   - 
   - 
   - 
